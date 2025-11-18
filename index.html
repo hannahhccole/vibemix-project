@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeMix - AI Playlist Generator</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🎵 VibeMix</h1>
+            <p class="tagline">Create playlists based on your mood</p>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Prompt Input Section -->
+            <section class="prompt-section">
+                <div class="input-container">
+                    <label for="mood-prompt">What's your vibe?</label>
+                    <textarea 
+                        id="mood-prompt" 
+                        placeholder="Describe your mood or the vibe you're looking for... (e.g., 'relaxing sunset music', 'upbeat workout songs', 'nostalgic 90s hits')"
+                        rows="3"
+                    ></textarea>
+                    <button id="generate-btn" class="btn-primary">Generate Playlist</button>
+                </div>
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Creating your perfect playlist...</p>
+                </div>
+            </section>
+
+            <!-- Generated Playlist Section -->
+            <section class="playlist-section">
+                <div class="playlist-header">
+                    <h2>Your Playlist</h2>
+                    <button id="save-playlist-btn" class="btn-secondary hidden">Save to Favorites</button>
+                </div>
+                <div id="playlist-container" class="playlist-container">
+                    <p class="empty-state">Your generated playlist will appear here...</p>
+                </div>
+            </section>
+
+            <!-- Favorites Section -->
+            <section class="favorites-section">
+                <h2>Saved Playlists</h2>
+                <div id="favorites-container" class="favorites-container">
+                    <p class="empty-state">No saved playlists yet. Generate and save your favorites!</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Templates -->
+    <template id="song-template">
+        <div class="song-item">
+            <div class="song-info">
+                <div class="song-number"></div>
+                <div class="song-details">
+                    <h3 class="song-name"></h3>
+                    <p class="song-artist"></p>
+                </div>
+            </div>
+            <div class="song-actions">
+                <a href="#" target="_blank" rel="noopener noreferrer" class="youtube-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                    Watch
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <template id="favorite-playlist-template">
+        <div class="favorite-playlist">
+            <div class="favorite-header">
+                <div class="favorite-info">
+                    <h3 class="favorite-title"></h3>
+                    <p class="favorite-date"></p>
+                </div>
+                <div class="favorite-actions">
+                    <button class="btn-expand">Show</button>
+                    <button class="btn-delete">Delete</button>
+                </div>
+            </div>
+            <div class="favorite-songs hidden"></div>
+        </div>
+    </template>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
