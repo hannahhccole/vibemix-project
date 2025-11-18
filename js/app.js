@@ -14,7 +14,7 @@ const favoritesContainer = document.getElementById('favorites-container');
 const songTemplate = document.getElementById('song-template');
 const favoritePlaylistTemplate = document.getElementById('favorite-playlist-template');
 
-// Initialize App
+// Initialize Ap
 function init() {
     loadSavedPlaylists();
     renderFavorites();
